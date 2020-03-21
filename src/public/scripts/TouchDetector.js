@@ -23,7 +23,7 @@ class TouchDetector{
         const rightEar = PoseRecognizer.pose.keypoints[4].position;
         let radius = this.dist(leftEar.x, leftEar.y, rightEar.x, rightEar.y)/2;
         const nose = PoseRecognizer.pose.keypoints[0].position;
-        console.log("KUREC");
+        // console.log("KUREC");
     }
 
     onDetectionTime(){
