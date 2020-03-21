@@ -59,10 +59,16 @@ class TouchDetector {
         const ctx = canvas.getContext("2d");
         ctx.fillStyle = "#000000"; // Red color
         ctx.fillRect(0,0,window.innerWidth , window.innerHeight);
+
         ctx.fillStyle = "#ff2626"; // Red color
-        ctx.fillRect(leftHand.x , leftHand.y , 10, 10);
+        ctx.beginPath();
+        ctx.arc(leftHand.x, leftHand.y, rHead, 0, 2 * Math.PI);
+        ctx.fill();
+
         ctx.fillStyle = "#ffFFFF"; // Red color
-        ctx.fillRect(nose.x , nose.y , 10 , 10);;
+        ctx.beginPath();
+        ctx.arc(nose.x , nose.y , rHead , 0, 2 * Math.PI);
+        ctx.fill();
         
         // console.log(dLeft , leftHand);
     }
