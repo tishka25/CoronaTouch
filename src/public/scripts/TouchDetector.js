@@ -5,6 +5,7 @@ class TouchDetector {
         this.init = this.init.bind(this);
         this.onDetectionTime = this.onDetectionTime.bind(this);
         this._detectionHandler = this._detectionHandler.bind(this);
+        this._isTouchingFace = false;
     }
 
     init() {
@@ -54,7 +55,9 @@ class TouchDetector {
         }
 
         let dLeft = this.dist(leftHand.x, leftHand.y, nose.x, nose.y);
-        console.log( thereIsAnother || dLeft < rLeftHand + rHead);
+        const toReturn = (thereIsAnother || dLeft < rLeftHand + rHead);;
+        this._isTouchingFace = toReturn;
+        return toReturn
         // const canvas = document.getElementById("testVideo");
         // const ctx = canvas.getContext("2d");
         // ctx.fillStyle = "#000000"; // Red color
@@ -76,6 +79,11 @@ class TouchDetector {
     onDetectionTime() {
         if (PoseRecognizer.isLoaded && PoseRecognizer.pose && PoseRecognizer.hands != null && PoseRecognizer.hands.length)
             this._detectionHandler();
+        else{
+            this._isTouchingFace = false;
+        }
+        
+        console.log(this._isTouchingFace);
     }
 
 }
