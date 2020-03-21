@@ -25,6 +25,7 @@ const PoseRecognizer = {
         const size = 200;
         const flip = false; // whether to flip the webcam
         webcam = new tmPose.Webcam(size, size, flip); // width, height, flip
+        handTrackModel = await handTrack.load();
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);

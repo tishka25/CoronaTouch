@@ -19,10 +19,11 @@ class TouchDetector{
     }
 
     _detectionHandler(){
-        const leftWrist = PoseRecognizer.pose.keypoints[9].position;
         const leftEar = PoseRecognizer.pose.keypoints[3].position;
-        const distance = this.dist(leftEar.x , leftEar.y , leftWrist.x , leftWrist.y);
-        console.log(distance);
+        const rightEar = PoseRecognizer.pose.keypoints[4].position;
+        let radius = this.dist(leftEar.x, leftEar.y, rightEar.x, rightEar.y)/2;
+        const nose = PoseRecognizer.pose.keypoints[0].position;
+        console.log("KUREC");
     }
 
     onDetectionTime(){
