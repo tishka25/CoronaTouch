@@ -22,7 +22,7 @@ const createWindow = () => {
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
 
-  tray = new Tray(path.join(__dirname, '/icons/noTouch.ico'))
+  tray = new Tray(path.join(__dirname, '/icons/notouch.png'))
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
