@@ -32,7 +32,7 @@ class TouchDetector {
         // 3: 144.56116557121277
         // 1: {bbox: Array(4), class: 0, score: 0.695424497127533}
         //Radius of left hand
-        let rLeftHand = PoseRecognizer.hands[0].bbox[2]
+        let rLeftHand = (PoseRecognizer.hands[0].bbox[2] + PoseRecognizer.hands[0].bbox[2]) / 4;
         //Left hand coordinates
         let leftHand = {
             x: PoseRecognizer.hands[0].bbox[0] + (PoseRecognizer.hands[0].bbox[2] / 2),
@@ -42,7 +42,7 @@ class TouchDetector {
         let thereIsAnother = false;
         if (PoseRecognizer.hands[1] ) {
             //Radius of right hand
-            let rRightHand = PoseRecognizer.hands[1].bbox[2];
+            let rRightHand = (PoseRecognizer.hands[1].bbox[2] + PoseRecognizer.hands[1].bbox[3])/4;
             //Right hand coordinates
             let rightHand = {
                 x: PoseRecognizer.hands[1].bbox[0] + (PoseRecognizer.hands[1].bbox[2] / 2),
@@ -55,20 +55,20 @@ class TouchDetector {
 
         let dLeft = this.dist(leftHand.x, leftHand.y, nose.x, nose.y);
         console.log( thereIsAnother || dLeft < rLeftHand + rHead);
-        const canvas = document.getElementById("testVideo");
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "#000000"; // Red color
-        ctx.fillRect(0,0,window.innerWidth , window.innerHeight);
+        // const canvas = document.getElementById("testVideo");
+        // const ctx = canvas.getContext("2d");
+        // ctx.fillStyle = "#000000"; // Red color
+        // ctx.fillRect(0,0,window.innerWidth , window.innerHeight);
 
-        ctx.fillStyle = "#ff2626"; // Red color
-        ctx.beginPath();
-        ctx.arc(leftHand.x, leftHand.y, rHead, 0, 2 * Math.PI);
-        ctx.fill();
+        // ctx.fillStyle = "#ff2626"; // Red color
+        // ctx.beginPath();
+        // ctx.arc(leftHand.x, leftHand.y, rHead, 0, 2 * Math.PI);
+        // ctx.fill();
 
-        ctx.fillStyle = "#ffFFFF"; // Red color
-        ctx.beginPath();
-        ctx.arc(nose.x , nose.y , rHead , 0, 2 * Math.PI);
-        ctx.fill();
+        // ctx.fillStyle = "#ffFFFF"; // Red color
+        // ctx.beginPath();
+        // ctx.arc(nose.x , nose.y , rHead , 0, 2 * Math.PI);
+        // ctx.fill();
         
         // console.log(dLeft , leftHand);
     }
