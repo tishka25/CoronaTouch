@@ -24,12 +24,10 @@ const createWindow = () => {
 
   tray = new Tray(path.join(__dirname, '/icons/notouch16_2.png'))
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' },
-    { label: 'Item3', type: 'radio', checked: true },
-    { label: 'Item4', type: 'radio' }
+    { label: 'Enable', type: 'checkbox', checked: true },
+    { label: 'Help', type: 'normal' }
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Don\'t touch your face!')
   tray.setContextMenu(contextMenu)
 };
 
