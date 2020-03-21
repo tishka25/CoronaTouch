@@ -15,7 +15,6 @@ const PoseRecognizer = {
         const predict = async () => {
             const { pose } = await model.estimatePose(webcam.canvas);
             const handPredictions = await handTrackModel.detect(webcam.canvas);
-            console.log(handPredictions , handTrackModel.getFPS());
             PoseRecognizer.isLoaded = true;
             PoseRecognizer.pose = pose;
             PoseRecognizer.hands = handPredictions;
