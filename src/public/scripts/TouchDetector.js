@@ -27,7 +27,7 @@ class TouchDetector {
         const nose = PoseRecognizer.pose.keypoints[0].position;
 
         //Radius of left hand
-        let rLeftHand = (PoseRecognizer.hands[0].bbox[2] + PoseRecognizer.hands[0].bbox[2]) / 4;
+        let rLeftHand = (PoseRecognizer.hands[0].bbox[2] + PoseRecognizer.hands[0].bbox[2]) / 3;
         //Left hand coordinates
         let leftHand = {
             x: PoseRecognizer.hands[0].bbox[0] + (PoseRecognizer.hands[0].bbox[2] / 2),
@@ -37,7 +37,7 @@ class TouchDetector {
         let thereIsAnother = false;
         if (PoseRecognizer.hands[1] ) {
             //Radius of right hand
-            let rRightHand = (PoseRecognizer.hands[1].bbox[2] + PoseRecognizer.hands[1].bbox[3])/4;
+            let rRightHand = (PoseRecognizer.hands[1].bbox[2] + PoseRecognizer.hands[1].bbox[3])/3;
             //Right hand coordinates
             let rightHand = {
                 x: PoseRecognizer.hands[1].bbox[0] + (PoseRecognizer.hands[1].bbox[2] / 2),
@@ -49,6 +49,7 @@ class TouchDetector {
         }
 
         let dLeft = this.dist(leftHand.x, leftHand.y, nose.x, nose.y);
+        // console.log(dLeft , thereIsAnother);
         const toReturn = (thereIsAnother || dLeft < rLeftHand + rHead);;
         this._isTouchingFace = toReturn;
         return toReturn

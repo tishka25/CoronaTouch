@@ -16,7 +16,6 @@ const PoseRecognizer = {
             const { pose } = await model.estimatePose(webcam.canvas);
             const handPredictions = await handTrackModel.detect(webcam.canvas);
             PoseRecognizer.isLoaded = true;
-            // console.log(pose , handPredictions);
             PoseRecognizer.pose = pose;
             PoseRecognizer.hands = handPredictions;
         }
@@ -27,7 +26,7 @@ const PoseRecognizer = {
 
         const modelParams = {
             flipHorizontal: false,   // flip e.g for video  
-            maxNumBoxes: 10,        // maximum number of boxes to detect
+            maxNumBoxes: 20,        // maximum number of boxes to detect
             imageScaleFactor: 0.7,
             iouThreshold: 0.5,      // ioU threshold for non-max suppression
             scoreThreshold: 0.7,    // confidence threshold for predictions.
