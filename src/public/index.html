@@ -34,22 +34,15 @@
     }
 
     async function predict() {
-      // Prediction #1: run input through posenet
-      // estimatePose can take in an image, video or canvas html element
       const { pose } = await model.estimatePose(webcam.canvas);
-
-      console.log(pose);
-
-      // finally draw the poses
-      // drawPose(pose);
+      
+      // console.log(pose);
     }
   </script>
 </head>
 
 <body onload="init()">
-  <div>Teachable Machine Pose Model</div> -->
-
-  <!-- <video id="webcam"  hidden></video> -->
+  <div>Teachable Machine Pose Model</div>
 </body>
 
 </html>
